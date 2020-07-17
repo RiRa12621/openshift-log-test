@@ -8,12 +8,12 @@ import (
 )
 
 func main() {
+	http.HandleFunc("/", HelloServer)
+	http.ListenAndServe(":8080", nil)
 	for {
 		log.Print("Just keep on logging")
 		time.Sleep(time.Second)
 	}
-	http.HandleFunc("/", HelloServer)
-	http.ListenAndServe(":8080", nil)
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
